@@ -11,20 +11,14 @@ var tick = 500;//Tempo entre cada movimento
 var tamanhoCobra = 1;//Tamanho da cobra
 var posicaoMaca = null;//Posição atual da maçã
 var posicao = new Array(200)//geração matriz das posicoes da cobra
-var recordePontuacao = 0;//Recorde atual
+var recordePontuacao = 200;//Recorde atual
 var derrota = false;
-var rard = false;
-$.getJSON("js/pontuacao.json",json=>{
-    recordePontuacao = parseInt(json.pontuacao);//Pega do arquivo pontuacao.json o recorde atual
-    $('#recorde').text(`Recorde: ${recordePontuacao}`);
-})
-
-//------Velocidade------//
-
-$('#velocidade').on('input',(e)=>tick = e.currentTarget.value)
+var velocAleatoria = false;
 
 //------Setup------//
-    
+   
+$('#velocidade').on('input',(e)=>tick = e.currentTarget.value)
+$('#recorde').text(`Recorde: ${recordePontuacao}`);
 $('#qdd90').css('background-color','lime');//Desenha o inicio da cobra na tela
 posicao[0] = 90;//Salva a posição inicial da cobra no array posicao
 var posicaoMaca = GerarMaca()//Gera a maçã
@@ -59,7 +53,7 @@ $(document).keydown((e)=>{
             tabuleiro.ApagarBordas();
             break;
         case "r":
-            rard = !rard
+            velocAleatoria = !velocAleatoria
     }
 })
 
@@ -114,9 +108,6 @@ function AtualizarTabuleiro(row,col){
 function Derrota(motivo){
     derrota = true
     alert(`Você perdeu por ${motivo}`);
-    if(tamanhoCobra > recordePontuacao){
-        $('#recorde').load('atualizarRecorde.php',{"info":{"pontuacao":tamanhoCobra}});//Envia o novo recorde a um arquivo php que atualiza o json
-    }
 }
 
 function logicaDoJogo(){
@@ -124,7 +115,7 @@ function logicaDoJogo(){
     if(posicao[0] == posicaoMaca){//Verfifca se houve colsçao entre a cobra e a maçã
         tamanhoCobra++;//Aumenta o tamnaho da cobra
         posicaoMaca = GerarMaca();//gera a maçã
-        if(rard){
+        if(velocAleatoria){
             tick = Math.random() * (1001 - 100) + 100
             $('#velocidade').val(tick);
         }
