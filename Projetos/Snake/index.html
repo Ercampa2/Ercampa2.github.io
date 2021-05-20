@@ -12,13 +12,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="js/tabuleiro.js" defer></script>
         <script type="module" src="js/index.js" defer></script>
+        <script src="dist/winbox.bundle.js"></script>
     </head>
     <body>
         <div class="fundo fundo-esquerda">
             <div class="menu">
-                <div id="recorde"></div>
-                <div>Pressione "b" para ativar/desativar a grade</div>
-                <div>Pressione "r" par modo de velocidade aleatória</div>
+                <div id="controles">Controles</div>
+                <input type="range" name="veloc" id="velocidade" min="100" max="1000">
             </div> 
         </div>
         <div class="fundo fundo-centro">
@@ -26,9 +26,8 @@
         </div>
         <div class="fundo fundo-direita">
             <div class="menu">
-                <div class="pontuacao"></div>
-                <input type="range" name="veloc" id="velocidade" min="100" max="1000">
-
+                <div class="pontuacao">Pontuação:1</div>
+                <div id="recorde"></div>
             </div>
         </div>    
     </body>

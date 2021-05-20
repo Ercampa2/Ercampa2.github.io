@@ -3,7 +3,6 @@ tabuleiro = new tabuleiro();
 
 const matMov = tabuleiro.GerarMatMov();
 tabuleiro.GeracaoTabuleiro();
-tabuleiro.ApagarBordas();
 
 var direcao = null;//Direção que a cobra irá se mover
 var ultimaDirecao = null;//Direcao da cobra na ultima movimentação
@@ -54,6 +53,13 @@ $(document).keydown((e)=>{
             break;
         case "r":
             velocAleatoria = !velocAleatoria
+            break;
+        case "n":
+            tabuleiro.NumerarTabuleiro();
+            break;
+        case "t":
+            tabuleiro.GirarTabuleiro();
+            break;
     }
 })
 
@@ -115,6 +121,7 @@ function logicaDoJogo(){
     if(posicao[0] == posicaoMaca){//Verfifca se houve colsçao entre a cobra e a maçã
         tamanhoCobra++;//Aumenta o tamnaho da cobra
         posicaoMaca = GerarMaca();//gera a maçã
+        $(".pontuacao").text(`Pontuação: ${tamanhoCobra}`);
         if(velocAleatoria){
             tick = Math.random() * (1001 - 100) + 100
             $('#velocidade').val(tick);
@@ -163,7 +170,14 @@ function logicaDoJogo(){
           ultimaDirecao = "ArrowRight";
           break;
     }
-    $(".pontuacao").text(`Pontuação: ${tamanhoCobra}`)
 
     !derrota?setTimeout(logicaDoJogo,tick):0;
 }
+$('#controles').click(()=>{
+    new WinBox("Controles do jogo", {
+        url: "./controles.html",
+        height:"100%",
+        width:"20%",
+        background: "linear-gradient(90deg, rgba(11,177,39,1) 0%, rgba(79,252,8,1) 50%, rgba(27,136,58,1) 100%)",
+    });
+})
