@@ -6,47 +6,6 @@ body,.fundo{
     margin:0;
     padding:0;
 }
-/* ---Fundo--- */
-.fundo{
-    height:100vh;
-    background-color: #353535;
-    position: relative;
-    float:left;
-}
-.fundo-esquerda,.fundo-direita{
-    width:20vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.fundo-centro{
-    width: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-/* ---Tabuleiro--- */
-.tabuleiro{
-    width:1002px;
-    height:502px;
-    border: 1px solid white;
-    box-sizing: border-box;
-    position: relative;
-}
-.quadrado{
-    width:50px;
-    height:50px;
-    position: relative;
-    float: left;
-    border: 0px;
-    box-sizing: border-box;
-    font-size: 15px;
-    color: white;
-    line-height: 50px;
-    text-align: center;
-    font-family: Arial;
-    pointer-events: none;
-}
 /* ---Laterais--- */
 .pontuacao{
     position: relative;
