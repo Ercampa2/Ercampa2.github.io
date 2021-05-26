@@ -1,0 +1,103 @@
+html,body{
+    margin:0;
+    padding: 0;
+    direction: ltr;
+    overflow-y: hidden;
+    color:white
+}
+.fundo{
+    width:200vw;
+    height: 100vh;
+    position: relative;
+    background-color: #353535;
+}
+.minhas-informacoes{
+    height:80vh;
+    width:25vw;
+    margin:10vh;
+    position: relative;
+    float: left;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+.lado-infomracoes{
+    position: absolute;
+    transform-style: preserve-3d;
+    background-color: #505050;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center ;
+    justify-content: space-around;
+    flex-direction: column;
+    box-shadow: -10px 10px  20px #101010;
+    transition: .5s ease-in-out;
+    transform: perspective(1000px) rotateY(0deg);
+    text-align: center;
+}
+.informacoes-tras{
+    transform: perspective(1000px) rotateY(180deg);
+    font-size: 1.5em;
+
+}
+#minha-imagem{
+    position: relative;
+    border-radius: 50%;
+    transform: scale(0.8);
+}
+#phone{
+    height: 15px;
+    width:15px;
+    margin-right:5px;
+}
+#mail{
+    height: 15px;
+    width:20px;
+    margin-right:5px;
+}
+#github{
+    height: 20px;
+    width:20px;
+    margin-right:5px;
+}
+
+.vertical-box{
+    width:20vw;
+    height:80vh;
+    margin:10vh;
+    position: relative;
+    float: left;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+.snake-box{
+    position: relative;
+    display: flex;
+    align-items: center;
+    color:white;
+    transition: .5s;
+}
+#snake-img{
+    width:90%;
+    height:90%;
+
+    margin:5%;
+}
+.snake-box a div{
+    text-align: center;
+}   
+.minhas-informacoes:hover .informacoes-frente{
+    transform:perspective(1000px) rotateY(180deg)
+}
+.minhas-informacoes:hover .informacoes-tras{
+    transform:perspective(1000px) rotateY(360deg)
+}
+a:link, a:visited, a:hover, a:active{
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+.snake-box:hover{
+    box-shadow: -10px 10px  20px #101010;
+}

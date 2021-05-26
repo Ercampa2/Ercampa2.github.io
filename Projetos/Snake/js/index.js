@@ -104,7 +104,7 @@ function AtualizarTabuleiro(row,col){
         if(index % 2 == 0){ // Define qual cor pintar a cobra
             $("#qdd"+element).css('background-color','green');//Pinta a cobra
         }else{
-            $("#qdd"+element).css('background-color','greenyellow');//Pinta a cobre
+            $("#qdd"+element).css('background-color','rgb(34,177,77)');//Pinta a cobre
         }
     })
     $("#qdd"+posicaoMaca).css('background-color','red');//Pinta a cabeça da cobra

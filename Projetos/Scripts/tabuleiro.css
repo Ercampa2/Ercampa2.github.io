@@ -1,6 +1,5 @@
 .fundo{
     height:100vh;
-    background-color: #353535;
     position: relative;
     float:left;
 }
@@ -9,12 +8,14 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    background-color: #323232;
 }
 .fundo-centro{
-    width: 60%;
+    width: 60vw;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    background-color: #353535;
 }
 /* ---Tabuleiro--- */
 .tabuleiro{
@@ -36,5 +37,4 @@
     line-height: 50px;
     text-align: center;
     font-family: Arial;
-    pointer-events: none;
 }

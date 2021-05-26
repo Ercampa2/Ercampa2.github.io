@@ -1,0 +1,17 @@
+body, .div-fundo{
+    margin:0;
+    padding: 0;
+    background-color: #353535;
+    overflow: hidden;
+}
+.fundo{
+    display: flex;
+    align-items: center;
+}
+.minasRestantes{
+    color: white;
+    font-size: 2rem;
+}
+[data-status="bandeira"]{
+    background-color:rgb(255, 72, 0);
+}

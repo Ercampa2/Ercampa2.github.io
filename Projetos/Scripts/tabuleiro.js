@@ -31,7 +31,7 @@ class tabuleiro{
         let cont = 0;
         for(let f1 = 0; f1 < 10;f1++){
             for(let f2 = 0; f2 < 20; f2++){
-                $('#tabuleiro-id').append(`<div class="quadrado" id="qdd${cont}"></div>`);//Geração dos quadrados do tabuleiro
+                $('#tabuleiro-id').append(`<div class="quadrado" data-status="" id="qdd${cont}"></div>`);//Geração dos quadrados do tabuleiro
                 cont++;
             }
         }
