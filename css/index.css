@@ -101,3 +101,11 @@ a:link, a:visited, a:hover, a:active{
 .snake-box:hover{
     box-shadow: -10px 10px  20px #101010;
 }
+.construcao{
+    margin-top:50vh;
+    margin-left:1%;
+    transform: translate(0,-50%);
+    position: relative;
+    float: left;
+    font-size: 2em;
+}
