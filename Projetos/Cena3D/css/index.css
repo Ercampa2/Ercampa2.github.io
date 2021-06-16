@@ -1,0 +1,150 @@
+:root{
+    --velocRotacao: 30s;
+    --velocPulo: 1.5s;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    perspective: 15em;
+    transform-style: preserve-3d;
+    perspective-origin: 50% calc(50% - 4em);
+}
+.cena{
+    position: relative;
+    animation: RotacaoCena var(--velocRotacao) infinite linear;
+    transform-style: preserve-3d;
+}
+.piso{
+    background-image: 
+        radial-gradient(transparent,black 45%),
+        repeating-conic-gradient(
+            from 45deg,
+            #222 0deg 90deg,
+            #c1c1c1 90deg 180deg 
+        );
+    background-size: 100%, 1em 1em;
+    height: 25em;
+    width: 25em;
+    position: absolute;
+    transform: 
+        translate(-50%,-50%)
+        rotateX(90deg);
+    top: 2em;
+}
+.cubo{
+    height:4em;
+    width:4em;
+    position: absolute;
+    bottom: -2em;
+    left: -2em;
+    animation: CuboCompresso var(--velocPulo) infinite linear;
+}
+.frente,.esquerda,.tras,.direita{
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #0887;
+        box-shadow: 0 0 0.5em #000a inset;
+}
+.frente{
+    transform: translateZ(2em);
+}
+.direita{
+    transform: 
+        rotateY(270deg)
+        translateZ(2em);
+}
+.esquerda{
+    transform: 
+        rotateY(90deg)
+        translateZ(2em);
+}
+.tras{
+    transform: 
+        rotateY(180deg)
+        translateZ(2em);
+}
+.cima{
+    position: absolute;
+    width:4em;
+    height: 4em;
+    background-color: #0887;
+    transform: 
+        translateY(-50%)
+        rotateX(90deg);
+    transform-style: preserve-3d;
+}
+.baixo{
+    position: absolute;
+    width:4em;
+    height: 4em;
+    background-color: #0008;
+    bottom:1px;
+    transform: 
+        translateY(50%)
+        rotateX(90deg);
+    box-shadow: 0 0 .5em #000a;
+}
+.bola{
+    height:2em;
+    width:2em;
+    position: absolute;
+    background-image: radial-gradient(
+        circle at top,
+        silver,
+        70%,
+        #000
+    );
+    border-radius: 50%;
+    left: -1em;
+    bottom: 2em;
+    animation: 
+        PuloBola var(--velocPulo) infinite ease-out,
+        RotacaoBola var(--velocRotacao) infinite linear;
+}
+.sombra-bola{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+        #000a,transparent 40%
+    );
+    animation: SombraBola var(--velocPulo) infinite ease-out;
+}
+@keyframes RotacaoCena{
+    to{
+        transform:rotateY(360deg)
+    }
+}
+@keyframes RotacaoBola{
+    to{
+        transform:rotateY(-360deg)
+    }
+}
+@keyframes PuloBola{
+    0%,100%{
+        bottom:1em;
+    }
+    50%{
+        bottom:4em;
+        animation-timing-function: ease-in;
+    }
+}
+@keyframes CuboCompresso{
+    0%,100%{
+        height:3em;
+    }
+    25%,90%{
+        height:4em;
+    }
+}
+@keyframes SombraBola{
+    0%,100%{transform:scale(1); opacity:1;}
+    50%{transform:scale(2);animation-timing-function: ease-in;opacity:.5;}
+}

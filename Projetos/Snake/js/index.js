@@ -66,22 +66,13 @@ $(document).keydown((e)=>{
 
 //------Funções------//
 
-function AcharIndicePorValor(num){
-    for(let f1 = 0; f1 < 10; f1++){
-        for(let f2 = 0; f2 < 20; f2++){
-            if(matMov[f1][f2] == num){
-                return [f1,f2];//Retorna a posicao do valor inserido no array matMov
-            }
-        }
-    }
-}
 
 function GerarMaca(){
     while(true){
         let possivelPosicao = Math.floor(Math.random()*200);//Randomiza a posição da maçã
         let a = posicao.filter((index)=>index == possivelPosicao);//Verifica se a maçã está na mesma posição que a cobra
         if(a.length == 0){
-            AcharIndicePorValor(possivelPosicao);
+            tabuleiro.AcharIndicePorValor(possivelPosicao,matMov);
             $('#qdd'+possivelPosicao).css('background-color','red');//Marca a maçã no tabuleiro
             return possivelPosicao;
         }    
@@ -117,7 +108,7 @@ function Derrota(motivo){
 }
 
 function logicaDoJogo(){
-    var [row,col] = AcharIndicePorValor(posicao[0]);//Pega a posição da cabeça da cobra
+    var [row,col] = tabuleiro.AcharIndicePorValor(posicao[0],matMov);//Pega a posição da cabeça da cobra
     if(posicao[0] == posicaoMaca){//Verfifca se houve colsçao entre a cobra e a maçã
         tamanhoCobra++;//Aumenta o tamnaho da cobra
         posicaoMaca = GerarMaca();//gera a maçã

@@ -60,4 +60,14 @@ class tabuleiro{
         }
         this.vertical = !this.vertical;
     }
+    
+    AcharIndicePorValor(num,matMov){
+        for(let f1 = 0; f1 < 10; f1++){
+            for(let f2 = 0; f2 < 20; f2++){
+                if(matMov[f1][f2] == num){
+                    return [f1,f2];//Retorna a posicao do valor inserido no array matMov
+                }
+            }
+        }
+    }
 }

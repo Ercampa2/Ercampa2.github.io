@@ -1,16 +1,20 @@
+/* Padrão */
 html,body{
     margin:0;
     padding: 0;
     direction: ltr;
     overflow-y: hidden;
-    color:white
+    color:black;
+    font-family: 'Source Code Pro', monospace;
 }
+/* Fundo */
 .fundo{
     width:200vw;
     height: 100vh;
     position: relative;
-    background-color: #353535;
+    background-color: white;
 }
+/* conteudo principal */
 .minhas-informacoes{
     height:80vh;
     width:25vw;
@@ -23,7 +27,7 @@ html,body{
 .lado-infomracoes{
     position: absolute;
     transform-style: preserve-3d;
-    background-color: #505050;
+    background-color: #aaa;
     width: 100%;
     height: 100%;
     display: flex;
@@ -37,13 +41,16 @@ html,body{
 }
 .informacoes-tras{
     transform: perspective(1000px) rotateY(180deg);
-    font-size: 1.5em;
+    font-size: 1rem;
 
 }
 #minha-imagem{
     position: relative;
     border-radius: 50%;
-    transform: scale(0.8);
+    transform: scale(0.8)
+    translateY(300px);
+    opacity:0;
+    animation: aparecerImagem 1s 6s forwards;
 }
 #phone{
     height: 15px;
@@ -67,24 +74,50 @@ html,body{
     margin:10vh;
     position: relative;
     float: left;
-    display:flex;
-    align-items: center;
+    display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
-.snake-box{
+.main-box{
+    width:auto;
+}
+
+#meu-nome{
+    position: relative;
+    width:auto;
+}
+
+#meu-nome::before, 
+#meu-nome::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+#meu-nome::before{
+    background-color: white;
+    animation: Digitador steps(16) 4s 1s forwards;
+}
+#meu-nome::after{
+    width:0.125em;
+    background-color: black;
+    animation: 
+        Digitador steps(16) 4s 1s forwards,
+        cursor steps(16) 1s infinite;
+}
+
+.item-box{
     position: relative;
     display: flex;
     align-items: center;
     color:white;
     transition: .5s;
 }
-#snake-img{
+.item-img{
     width:90%;
     height:90%;
-
     margin:5%;
 }
-.snake-box a div{
+.item-box a div{
     text-align: center;
 }   
 .minhas-informacoes:hover .informacoes-frente{
@@ -93,12 +126,14 @@ html,body{
 .minhas-informacoes:hover .informacoes-tras{
     transform:perspective(1000px) rotateY(360deg)
 }
+/* Extras */
 a:link, a:visited, a:hover, a:active{
-    color: white;
+    color: black;
     text-decoration: none;
     font-size: 1.5em;
+    font-weight: bolder;
 }
-.snake-box:hover{
+.item-box:hover{
     box-shadow: -10px 10px  20px #101010;
 }
 .construcao{
@@ -108,4 +143,20 @@ a:link, a:visited, a:hover, a:active{
     position: relative;
     float: left;
     font-size: 2em;
+}
+@keyframes Digitador{
+    to{
+        left:100%;
+    }
+}
+@keyframes cursor{
+    to{
+        background-color: transparent;
+    }
+}
+@keyframes aparecerImagem{
+    to{
+        opacity:1;
+        transform:translateY(0px);
+    }
 }
