@@ -6,6 +6,7 @@ html,body{
     overflow-y: hidden;
     color:black;
     font-family: 'Source Code Pro', monospace;
+    font-size:20px;
 }
 /* Fundo */
 .fundo{
@@ -13,37 +14,8 @@ html,body{
     height: 100vh;
     position: relative;
     background-color: white;
-}
+}   
 /* conteudo principal */
-.minhas-informacoes{
-    height:80vh;
-    width:25vw;
-    margin:10vh;
-    position: relative;
-    float: left;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-}
-.lado-infomracoes{
-    position: absolute;
-    transform-style: preserve-3d;
-    background-color: #aaa;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center ;
-    justify-content: space-around;
-    flex-direction: column;
-    box-shadow: -10px 10px  20px #101010;
-    transition: .5s ease-in-out;
-    transform: perspective(1000px) rotateY(0deg);
-    text-align: center;
-}
-.informacoes-tras{
-    transform: perspective(1000px) rotateY(180deg);
-    font-size: 1rem;
-
-}
 #minha-imagem{
     position: relative;
     border-radius: 50%;
@@ -51,21 +23,6 @@ html,body{
     translateY(300px);
     opacity:0;
     animation: aparecerImagem 1s 6s forwards;
-}
-#phone{
-    height: 15px;
-    width:15px;
-    margin-right:5px;
-}
-#mail{
-    height: 15px;
-    width:20px;
-    margin-right:5px;
-}
-#github{
-    height: 20px;
-    width:20px;
-    margin-right:5px;
 }
 
 .vertical-box{
@@ -81,30 +38,6 @@ html,body{
 .main-box{
     width:auto;
 }
-
-#meu-nome{
-    position: relative;
-    width:auto;
-}
-
-#meu-nome::before, 
-#meu-nome::after{
-    content: '';
-    position: absolute;
-    inset: 0;
-}
-#meu-nome::before{
-    background-color: white;
-    animation: Digitador steps(16) 4s 1s forwards;
-}
-#meu-nome::after{
-    width:0.125em;
-    background-color: black;
-    animation: 
-        Digitador steps(16) 4s 1s forwards,
-        cursor steps(16) 1s infinite;
-}
-
 .item-box{
     position: relative;
     display: flex;
@@ -126,15 +59,128 @@ html,body{
 .minhas-informacoes:hover .informacoes-tras{
     transform:perspective(1000px) rotateY(360deg)
 }
+.item-box:hover{
+    box-shadow: -10px 10px  20px #101010;
+}
+
+/* Digitador*/
+#meu-nome{
+    position: relative;
+    width:auto;
+}
+
+#meu-nome::before, 
+#meu-nome::after{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+#meu-nome::before{
+    background-color: white;
+    animation: Digitador steps(16) 4s 1s forwards;
+}
+#meu-nome::after{
+    width:0.125em;
+    background-color: black;
+    animation: 
+        Digitador steps(16) 4s 1s forwards,
+        cursor steps(16) 1s infinite;
+}
+
+/* Redes e contas */
+.dados{
+    position: fixed;
+    height:2em; 
+    width:18em;
+    left: 50%;
+    transform:translateX(-50%);
+    display: flex;
+    flex: row;
+}
+.info-dados{
+    position: fixed;
+    height:2em; 
+    width:18em;
+    top:2em;
+    left: 50%;
+    transform:translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:0 0 10px 10px;
+    opacity:0;  
+    font-size:1em;
+    transition:.5s;
+    color: white;
+}   
+.dados>div:nth-child(1n){
+    width:6em;
+    height:2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:.5s;
+}
+.dados>div:nth-child(1){
+    background-color:#353535;
+    border-bottom-left-radius: 10px;
+}
+.dados>div:nth-child(2){
+    background-color:#900000;
+}
+.dados>div:nth-child(3){
+    background-color:#008000;
+    border-bottom-right-radius: 10px;
+}
+
+/* Icones */
+#phone{
+    height: 15px;
+    width:15px;
+    margin-right:5px;
+}
+#mail{
+    height: 15px;
+    width:20px;
+    margin-right:5px;
+}
+#github{
+    height: 20px;
+    width:20px;
+    margin-right:5px;
+}
+
+/* Seta */
+footer{
+    width:100%;
+    height:5%;
+    position: fixed;
+    bottom:0;
+    left:0;
+    z-index: 1;
+}
+.seta{
+    height:2em; 
+    width:2em;
+    border-color:black;
+    border-style: solid;
+    border-width: .5em .5em 0 0;
+    bottom:0;
+    left:0;
+    transform:translateX(-10em)rotateZ(45deg) translateY(-1em) ;
+    animation: Seta 5s infinite linear;
+    box-shadow: white .5em -.5em, black 1em -1em,white 1.5em -1.5em, black 2em -2em;
+}
+
 /* Extras */
 a:link, a:visited, a:hover, a:active{
     color: black;
     text-decoration: none;
     font-size: 1.5em;
     font-weight: bolder;
-}
-.item-box:hover{
-    box-shadow: -10px 10px  20px #101010;
 }
 .construcao{
     margin-top:50vh;
@@ -144,6 +190,8 @@ a:link, a:visited, a:hover, a:active{
     float: left;
     font-size: 2em;
 }
+
+/* Keyframes */
 @keyframes Digitador{
     to{
         left:100%;
@@ -158,5 +206,10 @@ a:link, a:visited, a:hover, a:active{
     to{
         opacity:1;
         transform:translateY(0px);
+    }
+}
+@keyframes Seta{
+    to{
+        transform:translateX(100em) rotateZ(45deg) translateY(-1em);
     }
 }

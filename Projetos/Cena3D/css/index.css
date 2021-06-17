@@ -15,11 +15,13 @@ body{
     transform-style: preserve-3d;
     perspective-origin: 50% calc(50% - 4em);
 }
+/* Cena */
 .cena{
     position: relative;
     animation: RotacaoCena var(--velocRotacao) infinite linear;
     transform-style: preserve-3d;
 }
+/* Piso */
 .piso{
     background-image: 
         radial-gradient(transparent,black 45%),
@@ -37,6 +39,7 @@ body{
         rotateX(90deg);
     top: 2em;
 }
+/* Cubo */
 .cubo{
     height:4em;
     width:4em;
@@ -91,6 +94,7 @@ body{
         rotateX(90deg);
     box-shadow: 0 0 .5em #000a;
 }
+/* Bola */
 .bola{
     height:2em;
     width:2em;
@@ -117,6 +121,8 @@ body{
     );
     animation: SombraBola var(--velocPulo) infinite ease-out;
 }
+
+/* Animações */
 @keyframes RotacaoCena{
     to{
         transform:rotateY(360deg)
