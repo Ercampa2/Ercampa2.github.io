@@ -1,0 +1,13 @@
+.tabuleiro-container{
+    display: grid;
+    gap: 0;
+    border: 1px white solid;
+    width: 30em;
+    height: 30em;
+}
+.tabuleiro-quadrado{
+    box-sizing: border-box;
+    border: 1px red solid;
+    grid-auto-rows: auto;
+    grid-auto-columns: auto;
+}

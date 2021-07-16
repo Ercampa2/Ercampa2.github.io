@@ -1,6 +1,6 @@
-//------Variáveis e constantes------//
-tabuleiro = new tabuleiro();
+import tabuleiro2 from "../../Scripts/tabuleiro2.js";
+var tabuleiro = new tabuleiro2();
+var numeroDeLinhasEColunas = 3;
 
-const matMov = tabuleiro.GerarMatMov();
-tabuleiro.GeracaoTabuleiro();
-tabuleiro.GirarTabuleiro();
+
+tabuleiro.Gerartabuleiro(numeroDeLinhasEColunas);
